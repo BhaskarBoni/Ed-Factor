@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Create CSS popup with Lightbox effect</title>
+<script>
+$(document).ready(function(){
+  //$("button").click(function(){
+    $("#div1").load("leftmenu.html");
+ // });
+});
+</script>
+<script type="text/javascript">
+window.document.onkeydown = function (e)
+{
+	if (!e){
+		e = event;
+	}
+	if (e.keyCode == 27){
+		lightbox_close();
+	}
+}
+function lightbox_open(){
+	window.scrollTo(0,0);
+	document.getElementById('light').style.display='block';
+	document.getElementById('fade').style.display='block';	
+}
+function lightbox_close(){
+	document.getElementById('light').style.display='none';
+	document.getElementById('fade').style.display='none';
+$("#div1").load("leftmenu.html");	
+}
+</script>
+<style type="text/css">
+#fade{
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:1001;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	filter: alpha(opacity=80);
+}
+#light{
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 200px;
+	margin-left: -150px;
+	margin-top: -100px;					
+	border: 2px solid #FFF;
+	background: #FFF;
+	z-index:1002;
+	overflow:visible;
+}
+</style>
+</head>
+
+<body>
+<a href="http://1stwebmagazine.com/create-css-popup-with-lightbox-effect"><img src="Create%20CSS%20popup%20with%20Lightbox%20effect_files/logo.png" alt="1stWebMagazine"></a>
+<h1>Create CSS popup with Lightbox effect</h1>
+
+<a href="#" onclick="lightbox_open();">Open lightbox</a>
+
+<p>You can close the lighbox popup by pressing <strong>ESC key</strong>, <strong>clicking outside</strong> the box, or <strong>clicking on the image</strong>. The image has an onClick='lightbox_close()' attribute.</p>
+
+<div style="display: none;" id="light">
+	<a href="#" onclick="lightbox_close();"><iframe src='signup.html'><iframe></a>
+</div>
+<div style="display: none;" id="fade" onclick="lightbox_close();"></div>
+
+
+
+</body></html>
